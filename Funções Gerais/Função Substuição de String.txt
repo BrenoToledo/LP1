@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <string.h>
+
+void substituirString(char *str, const char *substituir, const char *nova) {
+    int lenStr = strlen(str);
+    int lenSubstituir = strlen(substituir);
+    int lenNova = strlen(nova);
+
+    // Verificar se a string a ser substituída é não vazia
+    if (lenSubstituir == 0)
+        return;
+
+    // Enquanto houver ocorrências da string a ser substituída em str
+    char *ptr = strstr(str, substituir);
+    while (ptr != NULL) {
+        // Deslocar o restante da string após ocorrência para a direita
+        memmove(ptr + lenNova, ptr + lenSubstituir, lenStr - (ptr - str) - lenSubstituir + 1);
+        // Copiar a nova string na posição da ocorrência
+        memcpy(ptr, nova, lenNova);
+
+        // Encontrar a próxima ocorrência
+        ptr = strstr(ptr + lenNova, substituir);
+    }
+}
+
+int main() {
+    char str[100];
+    char substituir[100];
+    char nova[100];
+
+    printf("Digite uma string: ");
+    scanf("%s", str);
+
+    printf("Digite a string a ser substituída: ");
+    scanf("%s", substituir);
+
+    printf("Digite a nova string: ");
+    scanf("%s", nova);
+
+    substituirString(str, substituir, nova);
+
+    printf("String após substituição: %s\n", str);
+
+    return 0;
+}

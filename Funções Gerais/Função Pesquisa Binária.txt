@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+
+int pesquisaBinariaString(char *lista[], int tamanho, char *chave) {
+    int inicio = 0;
+    int fim = tamanho - 1;
+
+    while (inicio <= fim) {
+        int meio = (inicio + fim) / 2;
+        int resultado = strcmp(lista[meio], chave);
+
+        if (resultado == 0) {
+            return meio;  // A chave foi encontrada na posição 'meio'
+        } else if (resultado < 0) {
+            inicio = meio + 1;  // A chave é maior, procurar na metade direita
+        } else {
+            fim = meio - 1;  // A chave é menor, procurar na metade esquerda
+        }
+    }
+
+    return -1;  // A chave não foi encontrada
+}
+
+int main() {
+    char *lista[] = {"apple", "banana", "cherry", "grape", "orange", "strawberry"};
+    int tamanho = sizeof(lista) / sizeof(lista[0]);
+
+    char chave[100];
+    printf("Digite a palavra a ser pesquisada: ");
+    scanf("%s", chave);
+
+    int indice = pesquisaBinariaString(lista, tamanho, chave);
+
+    if (indice != -1) {
+        printf("A palavra '%s' foi encontrada na posição %d.\n", chave, indice);
+    } else {
+        printf("A palavra '%s' não foi encontrada na lista.\n", chave);
+    }
+
+    return 0;
+}

@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+void criptografarString(char *str, int deslocamento) {
+    int i = 0;
+    while (str[i] != '\0') {
+        str[i] = str[i] + deslocamento;  // Incrementa o valor ASCII de cada caractere pelo deslocamento
+        i++;
+    }
+}
+
+int main() {
+    char str[100];
+    int deslocamento;
+
+    printf("Digite uma string: ");
+    scanf("%s", str);
+
+    printf("Digite o deslocamento da criptografia: ");
+    scanf("%d", &deslocamento);
+
+    criptografarString(str, deslocamento);
+
+    printf("String criptografada: %s\n", str);
+
+    return 0;
+}

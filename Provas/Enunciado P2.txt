@@ -1,0 +1,11 @@
+O programa anexo troca os caracteres do vetor, alterando as letras maiúsculas para minúsculas e vice-versa.  
+Você deve reescrever o programa e fazer funções para: 
+
+ 
+
+OK - Criar uma função para realizar a troca de caracteres; 
+OK - Criar uma função para exibir o vetor; 
+OK - Criar uma função para contar todos os elementos que ficaram maiúsculos após a troca. Devolver à função main() a contagem para que seja exibido em tela. 
+
+ 
+--> Todo uso do vetor deve ser desenvolvido utilizando PONTEIRO 

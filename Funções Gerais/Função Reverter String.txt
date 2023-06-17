@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+void reverterString(char *str) {
+    char *inicio = str;
+    char *fim = str;
+    char temp;
+
+    // Encontrando o final da string
+    while (*fim != '\0') {
+        fim++;
+    }
+    fim--;
+
+    // Revertendo a string
+    while (inicio < fim) {
+        temp = *inicio;
+        *inicio = *fim;
+        *fim = temp;
+
+        inicio++;
+        fim--;
+    }
+}
+
+int main() {
+    char str[100];
+
+    printf("Digite uma string: ");
+    scanf("%s", str);
+
+    reverterString(str);
+
+    printf("String revertida: %s\n", str);
+
+    return 0;
+}
